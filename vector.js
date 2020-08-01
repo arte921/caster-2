@@ -14,7 +14,7 @@ class Vector {
 
     normalized = () => this.multiplyNumber(1 / this.length());
 
-    withLength = (length) => this.normalized().multiplyNumber(this.length());
+    withLength = (length) => this.normalized().multiplyNumber(length);
 
     toAngle = () => Math.tan(this.y / this.x);
 

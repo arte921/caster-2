@@ -1,5 +1,5 @@
 class Player{
-    constructor(pos, bearing = 0, fov = 90) {
+    constructor(pos, bearing = rad(45), fov = rad(90)) {
         //bearing and fov in radians
         this.pos = pos;
         this.bearing = bearing;
@@ -29,10 +29,8 @@ class Player{
             }
 
             if (color) {
-                this.line(a * 0.1);
-                console.log(a);
-            } else {
-                console.log(a);
+                this.line(i, a * 0.1);
+                //console.log(a * 0.1);
             }
 
         }
@@ -40,7 +38,8 @@ class Player{
     }
 
     line(x, dist) {
-        let wallheight = Math.pow(dist, -1) * 100;
+        let wallheight = Math.pow(dist, -1) * 1000;
+        console.log(dist);
         ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(x, height / 2 - wallheight / 2, 1, wallheight);
     }
