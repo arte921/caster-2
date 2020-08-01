@@ -12,11 +12,18 @@ class Vector {
 
     multiplyNumber = (factor) => new Vector(this.x * factor, this.y * factor);
 
-    normalized = () => this.multiply(1 / this.length());
+    normalized = () => this.multiplyNumber(1 / this.length());
 
-    withLength = (length) => this.normalized().multiply(this.length());
+    withLength = (length) => this.normalized().multiplyNumber(this.length());
 
     toAngle = () => Math.tan(this.y / this.x);
+
+    plusLength = (extra) =>  this.withLength(this.length() + extra);
+
+    rounded = () => new Vector(
+        Math.round(this.x),
+        Math.round(this.y)
+    );
 
     sum = (other, multiplier = 1) => new Vector(
         this.x + other.x * multiplier,
